@@ -72,4 +72,10 @@ dependencies {
     implementation ("androidx.compose.ui:ui:1.6.8")
     implementation ("androidx.compose.material:material:1.6.8")
     implementation ("androidx.compose.ui:ui-tooling-preview:1.6.8")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation ("com.github.bumptech.glide:compose:1.0.0-beta01")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0")
 }
