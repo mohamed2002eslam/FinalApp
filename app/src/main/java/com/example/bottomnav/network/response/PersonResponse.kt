@@ -2,20 +2,20 @@ package com.example.bottomnav.network.response
 
 import com.google.gson.annotations.SerializedName
 
-data class MoviesResponse(
+data class PersonResponse(
 
     @SerializedName("page")
     val page:Int?=null,
     @SerializedName("results")
-    val results: ArrayList<MoviesResponse>?=null,
+    val results: ArrayList<PersonResponse>?=null,
     @SerializedName("adult")
     val isAdult:Boolean ?=null,
     @SerializedName("vote_average")
     val averageVote:Double?=null,
-    @SerializedName("original_title")
-    val title: String? = null,
-    @SerializedName("poster_path")
-    val posterPath: String?=null,
-    @SerializedName("overview")
-    val overview: String?=null
+    @SerializedName("original_name")
+    val name: String? = null,
+    @SerializedName("profile_path")
+    val profilePath: String?=null,
+    @SerializedName("known_for_department")
+    val department: String?=null
 )
