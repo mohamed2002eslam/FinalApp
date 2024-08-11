@@ -1,11 +1,8 @@
 package com.example.bottomnav.viewModel
 
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.bottomnav.network.RetrofitBuilder
-import com.example.bottomnav.network.response.MoviesResponse
 import com.example.bottomnav.network.response.PersonResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

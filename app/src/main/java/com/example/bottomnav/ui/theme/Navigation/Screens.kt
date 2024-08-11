@@ -1,4 +1,4 @@
-package com.example.bottomnav.Navigation
+package com.example.bottomnav.ui.theme.Navigation
 
 enum class Screens {
     HomeScreen,

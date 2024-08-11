@@ -1,4 +1,4 @@
-package com.example.bottomnav.Navigation
+package com.example.bottomnav.ui.theme.Navigation
 
 import android.health.connect.datatypes.ExerciseRoute
 import androidx.compose.material.icons.Icons

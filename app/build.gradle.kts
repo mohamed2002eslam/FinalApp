@@ -1,16 +1,14 @@
 plugins {
+    alias(libs.plugins.compose.compiler)
     id ("com.android.application")
     id ("kotlin-android")
-    id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
-}
-buildscript {
-    dependencies {
-        classpath("com.google.dagger:hilt-android-gradle-plugin:2.44.2")
-    }
+    id("org.jetbrains.kotlin.kapt")
 }
 
+
 android {
+
     namespace = "com.example.bottomnav"
     compileSdk = 34
 
@@ -95,11 +93,10 @@ dependencies {
     // To use Kotlin annotation processing tool (kapt)
     kapt("androidx.room:room-compiler:$room_version")
     //Dagger
-    implementation ("com.google.dagger:hilt-android:2.44.2")
-    kapt ("com.google.dagger:hilt-android-compiler:2.44.2")
+    implementation ("com.google.dagger:hilt-android:2.50")
+    kapt ("com.google.dagger:hilt-android-compiler:2.50")
 
-    implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
+    implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
 
 
     testImplementation("junit:junit:4.13.2")
@@ -108,5 +105,7 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.6.8")
     debugImplementation("androidx.compose.ui:ui-tooling:1.6.8")
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.6.8")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.0")
 
+    implementation("com.squareup:javapoet:1.13.0")
 }

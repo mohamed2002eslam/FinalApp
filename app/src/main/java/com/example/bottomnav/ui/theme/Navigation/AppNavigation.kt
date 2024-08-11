@@ -1,4 +1,4 @@
-package com.example.bottomnav.Navigation
+package com.example.bottomnav.ui.theme.Navigation
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
@@ -10,6 +10,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -24,11 +27,12 @@ import androidx.navigation.compose.rememberNavController
 import com.example.bottomnav.Screens.HomeScreen
 import com.example.bottomnav.Screens.ProfileScreen
 import com.example.bottomnav.Screens.SettingsScreen
+import com.example.bottomnav.viewModel.SettingsViewModel
 
 @Composable
 fun AppNavigation(){
     val navController: NavController = rememberNavController()
-
+    val todoViewModel: SettingsViewModel = viewModel()
     Scaffold(
         bottomBar = {
             NavigationBar {
@@ -47,7 +51,7 @@ fun AppNavigation(){
                                 restoreState=true
                             }
                         },
-                        icon = { 
+                        icon = {
                             Icon(
                                 imageVector = navItem.icon,
                                 contentDescription = null
@@ -76,7 +80,7 @@ fun AppNavigation(){
                 ProfileScreen()
             }
             composable(route = Screens.SettingsScreen.name){
-                SettingsScreen()
+                SettingsScreen(todoViewModel)
             }
 
         }
