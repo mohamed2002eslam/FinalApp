@@ -13,7 +13,7 @@ class RetrofitBuilderPerson {
     companion object {
         fun getAPIServicePerson(): ApiPerson {
             val retrofit = Retrofit.Builder()
-                .baseUrl(NetworkConstantsPerson.BASE_URL_Person)
+                .baseUrl(NetworkConstants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(createOkHTTPClient())
                 .build()

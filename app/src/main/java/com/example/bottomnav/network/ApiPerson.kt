@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 //'https://api.themoviedb.org/3/trending/person/day?language=en-US' \
 interface ApiPerson{
-    @GET(NetworkConstantsPerson.Person_Trending)
+    @GET(NetworkConstants.Person_Trending)
 
     suspend fun getPersonTrending(
         @Query("language") language:String="en-US",//default value

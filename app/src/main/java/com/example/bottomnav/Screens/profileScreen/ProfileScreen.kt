@@ -1,10 +1,10 @@
-package com.example.bottomnav.Screens
+package com.example.bottomnav.Screens.profileScreen
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -27,8 +27,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.example.bottomnav.fullImageURL
-import com.example.bottomnav.viewModel.MoviesViewModel
-import com.example.bottomnav.viewModel.PersonViewModel
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
@@ -36,7 +34,8 @@ fun ProfileScreen(modifier: Modifier=Modifier, viewModel: PersonViewModel = hilt
     val PersonState by viewModel.PersonState
 
     LazyColumn(modifier = modifier
-        .padding(8.dp)) {
+        .padding(8.dp)
+        ) {
         items(PersonState?.results?: emptyList()){person->
             Column(modifier = Modifier
                 .padding(8.dp)
@@ -44,13 +43,13 @@ fun ProfileScreen(modifier: Modifier=Modifier, viewModel: PersonViewModel = hilt
                 .wrapContentHeight()
                 .clip(RoundedCornerShape(8.dp))
                 .border(BorderStroke(1.dp, color = Color.Black), RoundedCornerShape(8.dp))
-                .padding(bottom = 8.dp)
+                .padding(bottom = 8.dp),
+                verticalArrangement = Arrangement.SpaceBetween
             ){
                 GlideImage(modifier = Modifier
-
                     .fillMaxWidth()
                     .height(250.dp),model = person.profilePath.fullImageURL(), contentDescription =null,
-                    contentScale = ContentScale.FillBounds
+                    contentScale = ContentScale.FillBounds,
                 )
 
                 Text(

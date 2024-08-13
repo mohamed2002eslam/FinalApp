@@ -1,4 +1,4 @@
-package com.example.bottomnav.viewModel
+package com.example.bottomnav.Screens.profileScreen
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel

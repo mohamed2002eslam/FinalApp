@@ -1,4 +1,4 @@
-package com.example.bottomnav.viewModel
+package com.example.bottomnav.Screens.SettingsScreen
 
 import android.net.Uri
 import androidx.lifecycle.LiveData
@@ -9,8 +9,6 @@ import com.example.bottomnav.MainApplication
 import com.example.bottomnav.Todo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.time.Instant
-import java.util.Date
 
 class SettingsViewModel: ViewModel() {
     val todoDao = MainApplication.todoDatabase.getTodoDao()

@@ -10,24 +10,21 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
-import androidx.navigation.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.bottomnav.Screens.HomeScreen
-import com.example.bottomnav.Screens.ProfileScreen
-import com.example.bottomnav.Screens.SettingsScreen
-import com.example.bottomnav.viewModel.SettingsViewModel
+import com.example.bottomnav.Screens.SettingsScreen.SettingsScreen
+import com.example.bottomnav.Screens.SettingsScreen.SettingsViewModel
+import com.example.bottomnav.Screens.homeScreen.HomeScreen
+import com.example.bottomnav.Screens.profileScreen.ProfileScreen
 
 @Composable
 fun AppNavigation(){

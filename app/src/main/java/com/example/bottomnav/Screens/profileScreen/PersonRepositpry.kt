@@ -1,7 +1,6 @@
-package com.example.bottomnav.viewModel
+package com.example.bottomnav.Screens.profileScreen
 
 import com.example.bottomnav.network.ApiPerson
-import com.example.bottomnav.network.RetrofitBuilderPerson
 import com.example.bottomnav.network.response.PersonResponse
 import retrofit2.Response
 import javax.inject.Inject

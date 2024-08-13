@@ -1,10 +1,10 @@
-package com.example.bottomnav.viewModel
+package com.example.bottomnav.Screens.homeScreen
 
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.bottomnav.network.RetrofitBuilder
 import com.example.bottomnav.network.response.MoviesResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -14,8 +14,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MoviesViewModel @Inject constructor(private val repository: MoviesRepository) : ViewModel() {
-    var moviesState = mutableStateOf<MoviesResponse?>(null)
-        private set
+    private val _moviesState = MutableLiveData<MoviesResponse?>()
+    val moviesState: LiveData<MoviesResponse?> get() = _moviesState
 
     init {
         fetchMovies()
@@ -23,14 +23,8 @@ class MoviesViewModel @Inject constructor(private val repository: MoviesReposito
 
     private fun fetchMovies() {
         viewModelScope.launch(Dispatchers.IO) {
-            try {
-                val response = repository.getTrendingMovies()
-                if (response.isSuccessful) {
-                    moviesState.value = response.body()
-                }
-            } catch (e: Exception) {
-                // Handle error
-            }
+            val moviesResponse = repository.getTrendingMovies()
+            _moviesState.postValue(moviesResponse)
         }
     }
 }

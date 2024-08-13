@@ -1,12 +1,11 @@
 package com.example.bottomnav
 
+import com.example.bottomnav.Screens.homeScreen.MoviesRepository
+import com.example.bottomnav.Screens.profileScreen.PersonRepositpry
 import com.example.bottomnav.network.Api
 import com.example.bottomnav.network.ApiPerson
 import com.example.bottomnav.network.NetworkConstants
 import com.example.bottomnav.network.NetworkConstants.TIME_30
-import com.example.bottomnav.network.NetworkConstantsPerson
-import com.example.bottomnav.viewModel.MoviesRepository
-import com.example.bottomnav.viewModel.PersonRepositpry
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,7 +26,7 @@ object Module {
     @Singleton
     fun providApi(okhttpClient: OkHttpClient):ApiPerson{
         val retrofit = Retrofit.Builder()
-            .baseUrl(NetworkConstantsPerson.BASE_URL_Person)
+            .baseUrl(NetworkConstants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okhttpClient)
             .build()
@@ -36,7 +35,7 @@ object Module {
     }
     @Provides
     @Singleton
-    fun providPersonRepo(apiPerson: ApiPerson):PersonRepositpry{
+    fun providPersonRepo(apiPerson: ApiPerson): PersonRepositpry {
         return PersonRepositpry(apiPerson)
     }
     @Provides
@@ -52,7 +51,7 @@ object Module {
     }
     @Provides
     @Singleton
-    fun providMovieRepo(apiMovie: Api):MoviesRepository{
+    fun providMovieRepo(apiMovie: Api): MoviesRepository {
         return MoviesRepository(apiMovie)
     }
     @Provides
